@@ -24,4 +24,4 @@ for eachprofile in twitterprofile:
         initialrequest = requests.get('https://api.twitter.com/1.1/followers/list.json?cursor='+initialrequest.json()['next_cursor_str']+'&screen_name='+eachprofile+'&skip_status=true&include_user_entities=false&count=200', auth=auth)
         for eachtuser in initialrequest.json()['users']:
             allfollowers.append(eachtuser['screen_name'])
-    pickle.dump( allfollowers, open( eachprofile+".p", "wb" ) )
+    pickle.dump( allfollowers, open( "../pickles/"+eachprofile+".p", "wb" ) )
